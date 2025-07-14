@@ -1,4 +1,5 @@
 from typing import Literal
+import aiohttp
 
 from homeassistant.components import conversation
 from homeassistant.components.conversation import (
@@ -71,7 +72,27 @@ class ExternalConversationAgent(ConversationEntity, AbstractConversationAgent):
     ) -> ConversationResult:
         """Handle incoming message by sending it to external API."""
 
-        response_text = "This is supposed to be the response from external api. Until the api communication is implemented, this is a place holder"
+        text = user_input.text
+
+        headers = {"Content-Type": "application/json"}
+
+        payload = {
+            "text": text,
+            "context": user_input.context.as_dict() if user_input.context else {},
+        }
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    self._endpoint_url, json=payload, headers=headers, timeout=10
+                ) as response:
+                    if response.status != 200:
+                        response_text = "Error, External server couldn't process your request right now."
+                    else:
+                        data = await response.json()
+                        response_text = data.get("response", "Sorry, I didn't understand that.")
+        except Exception as exc:
+            response_text = "Error, unable to communicate with external server."
 
         # Add assistant content to chat log
         chat_log.async_add_assistant_content_without_tools(
