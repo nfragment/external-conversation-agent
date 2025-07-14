@@ -1,0 +1,11 @@
+{
+    "domain": "external_conversation_agent",
+    "name": "External Conversation Agent",
+    "version": "0.0.1-alpha",
+    "codeowners": ["@nfragment"],
+    "requirements": ["aiohttp"],
+    "documentation": "https://github.com/nfragment/external-conversation-agent",
+    "config_flow": true,
+    "iot_class": "local_push"
+  }
+  

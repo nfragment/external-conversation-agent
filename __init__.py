@@ -1,0 +1,1 @@
+"""Custom Conversation Agent for Home Assistant that can send all user inputs to any supported external API like Node-Red flows, N8N, LocalAI or custom endpoint"""
