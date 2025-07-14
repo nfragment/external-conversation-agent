@@ -12,3 +12,6 @@ A custom conversation agent for Home Assistant that allows to send user input to
 - Starting with reverse engineering official ollama integration
 - Looks like async_setup, async_setup_entry and async_unload_entry are needed. Don't know what the function of migrate is.
 - Devs also introduced subentry in this release. So yet to figure out how to use it. Skipping for now.
+- Adding config_flow and config_entries for setting up the integration from the UI.
+- Forward the config entry setup to the 'conversation' platform only as the ai_task platform is not required for our current usecase.
+- config entry is loading when integration is added, but errors out because of missing conversation platform.

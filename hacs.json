@@ -4,11 +4,11 @@
     "domains": ["conversation"],
     "zip_release": false,
     "filename": "custom_components/external_conversation_agent/manifest.json",
-    "homeassistant": "2025.7.0",
+    "homeassistant": "2025.7.1",
     "render_readme": true,
     "sidepanel_title": "External Conversation Agent",
     "sidepanel_icon": "mdi:package-variant",
     "changelog": "CHANGELOG.md",
     "hacs": "1.0.0"
-  }
+}
   
