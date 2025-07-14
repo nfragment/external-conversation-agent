@@ -1,2 +1,14 @@
 # External-Conversation-Agent
 A custom conversation agent for Home Assistant that allows to send user input to an external API ( like Node-Red flow, N8N, LocalAI or any other custom api endpoint )
+
+## Devlog
+
+### 14 July 2025
+- Latest release of Home Assistant (2025.7.1) is a big step towards standardization of voice related features and has a lot of improvements.
+- Now that custom ESPHome voice assistants have feature parity with official Voice PE features, we hope development will be much easier moving forward.
+- Voice and conversation features have seen a lot of development in the past year, hence there were a lot of changes happening to the code structure of both Home Assistant and ESPHome.
+- Keeping up with everything was not easy and any development that we made would break with the next release.
+- In this release some of the important structures related to Voice and AI features are almost standardized (eg conversation, config_entries) so this is a good time to start developing a custom conversation agent and hopefully add all the features that we want.
+- Starting with reverse engineering official ollama integration
+- Looks like async_setup, async_setup_entry and async_unload_entry are needed. Don't know what the function of migrate is.
+- Devs also introduced subentry in this release. So yet to figure out how to use it. Skipping for now.

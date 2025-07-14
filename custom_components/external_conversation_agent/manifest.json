@@ -1,7 +1,7 @@
 {
     "domain": "external_conversation_agent",
     "name": "External Conversation Agent",
-    "version": "0.0.2-alpha",
+    "version": "0.0.3-alpha",
     "codeowners": ["@nfragment"],
     "requirements": ["aiohttp"],
     "documentation": "https://github.com/nfragment/external-conversation-agent",
