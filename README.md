@@ -30,6 +30,9 @@ A custom conversation agent for Home Assistant that allows to send user input to
 - Tested by adding integration and the conversation agent shows up as a new entity in the ui.
 - Chatting with the agent gives the predefined static response as expected.
 #### v0.0.6-alpha
-- Using aiohttp for communicating with external api/server
-- Added basic error handling using try except
-- Tested with Node-Red http endpoint without any authentication
+- Using aiohttp for communicating with external api/server.
+- Implemented api call.
+- Added basic error handling using try except.
+- Created a Node-Red flow that will send back the user input along with a predefined text. 
+- Tested the conversation using Node-Red as endpoint (basic http without any authentication).
+- The component is ready for beta release.
