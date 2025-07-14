@@ -9,9 +9,22 @@ A custom conversation agent for Home Assistant that allows to send user input to
 - Voice and conversation features have seen a lot of development in the past year, hence there were a lot of changes happening to the code structure of both Home Assistant and ESPHome.
 - Keeping up with everything was not easy and any development that we made would break with the next release.
 - In this release some of the important structures related to Voice and AI features are almost standardized (eg conversation, config_entries) so this is a good time to start developing a custom conversation agent and hopefully add all the features that we want.
+#### v0.0.1-alpha
+- Initialized the repo and added basic files.
+#### v0.0.2-alpha
 - Starting with reverse engineering official ollama integration
 - Looks like async_setup, async_setup_entry and async_unload_entry are needed. Don't know what the function of migrate is.
 - Devs also introduced subentry in this release. So yet to figure out how to use it. Skipping for now.
+#### v0.0.3-alpha
+- Added HACS support
+#### v0.0.4-alpha
 - Adding config_flow and config_entries for setting up the integration from the UI.
 - Forward the config entry setup to the 'conversation' platform only as the ai_task platform is not required for our current usecase.
 - config entry is loading when integration is added, but errors out because of missing conversation platform.
+#### v0.0.5-alpha
+- Looks like in the new structure the conversation agent must be defined as an entity and then added to home assistant asynchronously using async_add_entities
+- when these entities are added or removed, the agents will be set and unset in the conversation platform.
+- supported_languages property is very important, without this the agent will not load.
+- added dummy response text for testing before implementing the api call
+- Tested by adding integration and the conversation agent shows up as a new entity in the ui.
+- Chatting with the agent gives the predefined static response as expected.
